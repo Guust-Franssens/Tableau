@@ -1,8 +1,8 @@
 /*
 This query finds workbooks that have not been used in the past X days and are at least 30 days old. 
 I chose the threshold of 120 days because some dashboards are only consulted on a querterly basis. 
-However, you can set this threshold lower (more will be deleted) or higher (less will be deleted)
-The threshold of 30 days after creation is chosen to not delete a dashboard that was just created and did not have a chance
+However, you can set this threshold lower (more will be displayed) or higher (less will be displayed)
+The threshold of 30 days after creation is chosen to not show a dashboard that was just created and did not have a chance
 to be used yet.
 
 Dashboards that have the tag 'NO_DELETE' are not affected.
