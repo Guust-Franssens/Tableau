@@ -175,7 +175,6 @@ def query_unused_workbooks() -> str:
             MAX(he.created_at) AS "last used passed six months"
         FROM workbooks w 
         JOIN folder_structure fs ON fs."project id" = w.project_id
-        LEFT JOIN project_admins pa ON w.project_id = pa.authorizable_id
         LEFT JOIN hist_workbooks hw ON hw.workbook_id = w.id
         LEFT JOIN historical_events he ON hw.id = he.hist_workbook_id
         LEFT JOIN _users u ON w.owner_id = u.id
