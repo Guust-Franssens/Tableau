@@ -1,5 +1,5 @@
 import pandas as pd
-import os
+import os, sys
 import glob
 import time
 import datetime
@@ -192,6 +192,11 @@ def setup_REST_connection(config_file:str, environment:str=DEFAULT_REST_ENV):
         ts_config = generate_config()
         print("done!")
     
+    if environment == 'XXXXXXXX':
+        print("\n\nplease change the ts_config file to reflect your tableau server details")
+        print("then change the DEFAULT_REST_ENV variable in the helpers.py file to the default environment/site you want to run in\n\n")
+        sys.exit()
+
     if ts_config.get(environment).get("personal_access_token_name") == "<YOUR_USERNAME>":
         credentials = prompt_personal_access_token(environment)
         ts_config[environment]["personal_access_token_name"] = credentials.get("pat_name")

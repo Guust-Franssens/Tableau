@@ -51,7 +51,7 @@ def cleanup_workbooks(dbConnection, REST_conn, delete=False) -> pd.DataFrame:
             item_name=row["workbook name"],
             item_type="workbook",
             owner=row["owner"],
-            email=row["email"],,
+            email=row["email"],
             tableau_location=row["project path"],
             attachment_location=attachment_location
         )
@@ -73,7 +73,7 @@ def cleanup_datasouces(dbConnection, REST_conn, delete=False) -> pd.DataFrame:
             item_name=row["data source name"],
             item_type="data_source",
             owner=row["owner"],
-            email=row["email"],,
+            email=row["email"],
             tableau_location=row["project path"],
             attachment_location=attachment_location      
         )
