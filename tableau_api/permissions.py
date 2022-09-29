@@ -8,7 +8,6 @@ try:
 except ModuleNotFoundError as e:
     print("\n\n--------------------------------------------------------------------------------------------------------------\n")
     print("The python environment you are running this script in does not contain all the dependencies.")
-    print("Please look at the 'update environment' section in the 'werkinstructie' how to update the environment")
     print("\n--------------------------------------------------------------------------------------------------------------\n\n")
     raise Exception(str(e)) from None
 
@@ -192,7 +191,7 @@ def main():
     
     # saving to output folder and to gateway
     print("Saving results...", end="")
-    df.to_excel("output\\permissions\\TAB_CDAO_Tableau_permissions.xlsx", sheet_name="Tableau_permissions", index=False)
+    df.to_excel("output\\permissions\\Tableau_permissions.xlsx", sheet_name="Tableau_permissions", index=False)
     print(" Done!")
     
     

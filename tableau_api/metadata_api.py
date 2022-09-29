@@ -8,7 +8,6 @@ try:
 except ModuleNotFoundError as e:
     print("\n\n--------------------------------------------------------------------------------------------------------------\n")
     print("The python environment you are running this script in does not contain all the dependencies.")
-    print("Please look at the 'update environment' section in the 'werkinstructie' how to update the environment")
     print("\n--------------------------------------------------------------------------------------------------------------\n\n")
     raise Exception(str(e)) from None
 
@@ -17,7 +16,7 @@ OUTPUT_FOLDER = "output\\metadata_api"
 DEFAULT_ENV = ""
 
 def main(environment):   
-    with warnings.catch_warnings(): # we get a warning that no ssl is inplace. We ignore this warning since this is due to the proxy of Argenta
+    with warnings.catch_warnings(): # we get a warning that no ssl is inplace if the company has a proxy
         warnings.simplefilter("ignore")
         
         start_time = time.time()

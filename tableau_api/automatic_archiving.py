@@ -11,7 +11,6 @@ try:
 except ModuleNotFoundError as e:
     print("\n\n--------------------------------------------------------------------------------------------------------------\n")
     print("The python environment you are running this script in does not contain all the dependencies.")
-    print("Please look at the 'update environment' section in the 'werkinstructie' how to update the environment")
     print("\n--------------------------------------------------------------------------------------------------------------\n\n")
     raise Exception(str(e)) from None
 
@@ -27,7 +26,7 @@ except:
 def setup_mail(item_name:str, item_type:str, owner:str, email:str, tableau_location:str, attachment_location:str) -> None:
     mail = outlook.CreateItem(0)
     mail.Subject = f"Tableau: {item_type} - {item_name}"
-    mail.SentOnBehalfOfName = "tableau@argenta.be"
+    mail.SentOnBehalfOfName = "EMAILADDRESSTOSENDFROM"
     mail.to = email
     mail.HTMLBody = (
         fr"""
@@ -154,7 +153,7 @@ def main(delete: bool, production: bool):
     
     
 if __name__ == "__main__":
-    parser = ArgumentParser(description='A script that allows for automatic archiving of unused workbooks and data sources on Tableau Argenta Site')
+    parser = ArgumentParser(description='A script that allows for automatic archiving of unused workbooks and data sources on Tableau XXX Site')
     parser.add_argument("--delete", dest="delete", action='store_true', help="default is set to delete")
     parser.add_argument("--no-delete", dest="delete", action='store_false', help="default is set to delete")
     

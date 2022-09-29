@@ -16,7 +16,7 @@ from sqlalchemy.exc import OperationalError
 
 current_date = time.strftime("%Y-%m-%d")
 TABLEAU_DATABASE_CONNECTION_DETAILS = "SERVERNAME:8060/workgroup?"
-DEFAULT_REST_ENV = "tableau_prod_argenta"
+DEFAULT_REST_ENV = "XXXXXXXX"
 
 LOOKUP_RESPONSES = {
     "sign_in": {
@@ -197,7 +197,7 @@ def setup_REST_connection(config_file:str, environment:str=DEFAULT_REST_ENV):
         ts_config[environment]["personal_access_token_name"] = credentials.get("pat_name")
         ts_config[environment]["personal_access_token_secret"] = credentials.get("pat_secret")
     
-    with warnings.catch_warnings(): # we get a warning that no ssl is inplace. We ignore this warning since this is due to the proxy of Argenta
+    with warnings.catch_warnings(): # we get a warning that no ssl is inplace. We ignore this warning since this is due to the company proxy
         warnings.simplefilter("ignore")
         conn = TableauServerConnection(ts_config, ssl_verify=False, env=environment)
     
