@@ -129,7 +129,7 @@ class ProjectDataFrame(FlattenedDataFrame):
 class ItemDataFrame(FlattenedDataFrame):
     def __init__(self, data, project_dataframe, index=None, columns=None, dtype=None, copy=None):
         super().__init__(data=data, index=index, columns=columns, dtype=dtype, copy=copy)
-        self._project_dataframe = project_dataframe
+        self._project_dataframe = project_dataframe.set_index("id", drop=False)
          
         self["rootParentProjectId"] = self.apply(lambda row: self.safe_at(row["project_id"]), axis=1)
         super().re_inititialize_super_class(self.loc[self["rootParentProjectId"].notna(), :])
